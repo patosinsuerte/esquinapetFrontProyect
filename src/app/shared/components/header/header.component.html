@@ -1,0 +1,39 @@
+<header class="header">
+    <div class="header__icon">
+        <img src="./assets/images/header-image.jpg" alt="Icon" class="header__icon-image" [routerLink]="'/'">
+    </div>
+    <nav class="nav">
+        <ul class="menu">
+            <li class="menu__item">
+                <a class="menu__link" (click)="scrollTo('home'); setHomeLink(); scrollToTop()"
+                    [ngClass]="getActiveLink === 0 ? 'menu__link--active': 'menu__link--inactive'">Inicio</a>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link" (click)="scrollTo('services'); setServiceLink()"
+                    [ngClass]="getActiveLink === 1 ? 'menu__link--active': 'menu__link--inactive'"
+                    [routerLink]="'/'">Servicios</a>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link" (click)="scrollTo('about'); setAboutLink()"
+                    [ngClass]="getActiveLink === 2 ? 'menu__link--active': 'menu__link--inactive'">Nosotros</a>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link" (click)="scrollTo('contact'); setContactLink()"
+                    [ngClass]="getActiveLink === 3 ? 'menu__link--active': 'menu__link--inactive'">Contacto</a>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link" [routerLink]="'/appointments'">Reservar Hora</a>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link menu__link--session" [routerLink]="'/auth/login'">Iniciar
+                    sesion</a>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link menu__link--session" [routerLink]="'/auth/register'">Registrarse</a>
+            </li>
+        </ul>
+    </nav>
+    <img src="../assets/icons/menu.svg" alt="menu" class="header__hamburguer"
+        (click)="toggleNavBar() ; toggleOpacity()">
+</header>
+<shared-nav-bar class="navbar"></shared-nav-bar>

@@ -1,0 +1,38 @@
+<div class="wrapper">
+
+    <div class="carousel">
+
+        <button class="button button--left" (click)="previewCards()">
+            <img src="/assets/icons/left.svg" alt="left arrow" class="arrow arrow--left">
+        </button>
+
+
+        <ng-container *ngFor="let groupIndex of cardGroups; let i = index;">
+            <div class="cards" [ngClass]="{'cards--on': currentIndex == i, 'cards--off': currentIndex != i}">
+
+                <div class="card" *ngFor="let card of cards.slice(groupIndex.start, groupIndex.end)">
+                    <div class="card__header">
+                        <img src="/assets/images/image-victor.jpg" alt="" class="card__img" draggable="false">
+                    </div>
+                    <div class="card__body">
+                        <h2 class="card__title">{{card.title}}</h2>
+                        <p class="card__text">Medico Veterinario</p>
+                    </div>
+                </div>
+
+            </div>
+        </ng-container>
+
+
+        <button class="button button--right" (click)="nextCards()">
+            <img src="/assets/icons/right.svg" alt="right arrow" class="arrow arrow--right">
+        </button>
+        <div class="control">
+            <div class="control__index"
+                [ngClass]="{'control__index--on': currentIndex == 0, 'control__index--off': currentIndex != 0 }"></div>
+            <div class="control__index"
+                [ngClass]="{'control__index--on': currentIndex == 1, 'control__index--off': currentIndex != 1 }"></div>
+        </div>
+
+
+    </div>

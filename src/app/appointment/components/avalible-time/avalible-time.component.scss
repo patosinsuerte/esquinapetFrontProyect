@@ -1,0 +1,33 @@
+.times {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    // background-color: red;
+    gap: 1em;
+    text-align: center;
+}
+
+.time {
+    border: solid rgb(0, 0, 0, 0.3) 1px;
+    padding: 0.3em;
+    cursor: pointer;
+}
+
+
+// time active styles
+
+
+@mixin timeStyles {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+}
+
+
+.time:hover {
+    @include timeStyles;
+}
+
+
+.time--active {
+    @include timeStyles;
+}

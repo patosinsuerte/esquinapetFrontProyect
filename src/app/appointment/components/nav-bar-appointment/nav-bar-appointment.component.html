@@ -1,0 +1,19 @@
+<div class="menu-opacity" [ngClass]="{ 'menu-opacity--active': navBarService.opacity}"></div>
+<nav class="lateral"
+    [ngClass]="{ 'lateral--active': navBarService.navBarIsActive, 'lateral--hidden': !navBarService.navBarIsActive}">
+    <ul class="lateral__menu">
+        <li class="lateral__item">
+            <a class="lateral__link" [routerLink]="'/'" (click)="offNavMenu(); offOpacity()">Inicio</a>
+        </li>
+        <li class=" lateral__item">
+            <a class="lateral__link menu__link--session" [routerLink]="'/auth/login'"
+                (click)="offNavMenu(); offOpacity()">Iniciar
+                sesion</a>
+        </li>
+        <li class="lateral__item">
+            <a class="lateral__link menu__link--session" [routerLink]="'/auth/register'"
+                (click)="offNavMenu(); offOpacity()">Registrarse</a>
+        </li>
+    </ul>
+    <img src="../assets/icons/x.svg" alt="X" class="lateral__x" (click)="offNavMenu(); offOpacity()">
+</nav>

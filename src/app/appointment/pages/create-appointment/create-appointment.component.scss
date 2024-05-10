@@ -1,0 +1,130 @@
+.wrapper {
+    width: 100%;
+    display: flex;
+    margin-top: 4em;
+    padding: 1em;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    gap: 2em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // background-color: #f3f3f3;
+}
+
+
+
+.form-wrapper {
+    width: 90%;
+    height: 300px;
+    display: flex;
+    height: 100%;
+}
+
+
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;
+    gap: 4em;
+    // box-shadow: 1px 1px 6px -2px rgba(0, 0, 0, 0.2);
+    padding: 1em;
+
+    @media screen and (min-width:700px) {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+.form__title {
+    margin-bottom: 1em;
+    color: var(--titles-color-light);
+    font-size: 1.3rem;
+}
+
+
+.form__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    box-shadow: 1px 1px 6px -2px rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 8px -2px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 1em;
+    width: 380px;
+    background-color: #fff;
+}
+
+input {
+    height: 30px;
+    padding: 0.5em;
+
+    border: none;
+    outline: none;
+    // border: #f0f0f0 1px solid;
+    border-bottom: #d0d0d0 1px solid;
+}
+
+.form__input:focus {
+    border-bottom-color: var(--primary-color);
+}
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+}
+
+.label {
+    color: var(--titles-color-light);
+}
+
+
+
+
+
+
+.form__error {
+    color: red;
+}
+
+
+.form__calendar {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    box-shadow: 1px 1px 8px -2px rgba(0, 0, 0, 0.2);
+    padding: 2em;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+
+.form__buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.form__button {
+    width: 200px;
+    height: 40px;
+    padding: 0.5em;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: #dbad4c;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+
+    &:hover {
+        background-color: #d09b38;
+    }
+}

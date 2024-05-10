@@ -1,0 +1,85 @@
+<mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav mode="push" [ngStyle]="{ width: '350px' }">
+        <mat-toolbar color="primary" class="secondary-toolbar">
+            <div class="secondary-toolbar__header">
+                <img src="./assets/images/header-image.jpg" alt="Icon" class="header__icon-image" [routerLink]="'/'">
+                <p>Esquina Pet</p>
+            </div>
+
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon><img src="/assets/icons/x.svg" alt="Menu" class="primary-toolbar__menu"></mat-icon>
+            </button>
+        </mat-toolbar>
+        <mat-nav-list>
+            <mat-list-item (click)="sidenav.toggle()" [routerLink]="'/user/appointments'">
+                <mat-icon matListItemIcon><img src="/assets/icons/clipboard.svg" alt="clipboard"></mat-icon>
+                Mis citas
+            </mat-list-item>
+            <mat-list-item (click)="sidenav.toggle()" [routerLink]="'/appointments'">
+                <mat-icon matListItemIcon><img src="/assets/icons/edit-2.svg" alt="clipboard"></mat-icon>
+                Reservar una hora
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-toolbar color="primary" class="primary-toolbar">
+        <button mat-icon-button (click)="sidenav.toggle()" class="primary-toolbar__button">
+            <mat-icon><img src="/assets/icons/menu.svg" alt="Menu" class="primary-toolbar__menu"></mat-icon>
+        </button>
+        <div class="primary-toolbar__items">
+            <!-- <a [routerLink]="'/'" class="primary-toolbar__item">Inicio</a> -->
+            <a [routerLink]="'/'" class="primary-toolbar__item">Mi Perfil</a>
+            <button mat-button>Cerrar sesion</button>
+        </div>
+
+    </mat-toolbar>
+
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+</mat-sidenav-container>
+
+
+
+
+
+
+<!-- <mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav mode="push" [ngStyle]="{ width: '250px' }">
+        <mat-toolbar color="primary">
+            <span>Menu</span>
+            <span class="spacer">Menu</span>
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menuicon</mat-icon>
+            </button>
+        </mat-toolbar>
+        <mat-nav-list>
+            <mat-list-item (click)="sidenav.toggle()">
+                <mat-icon matListItemIcon>ccc</mat-icon>
+                bbbb
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-toolbar color="primary">
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span class="spacer"></span>
+        <span>Inicio</span>
+        <button mat-button>Logout</button>
+    </mat-toolbar>
+
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+</mat-sidenav-container> -->
+
+<!-- <mat-toolbar color="primary" class="bar">
+    <button mat-icon-button>
+        <mat-icon class="icon">menu</mat-icon>
+    </button>
+    <span class="spacer"></span>
+    <span>Inicio</span>
+    <button mat-button>Logout</button>
+</mat-toolbar> -->

@@ -1,0 +1,33 @@
+.contact {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5em;
+    width: 100%;
+}
+
+.contact__title-text {
+    font-size: 2rem;
+    color: var(--light-black-font-color);
+    text-align: center;
+    padding: 0.5em;
+    border-bottom: var(--primary-color) 2px solid;
+}
+
+.information {
+    display: flex;
+    flex-direction: column;
+    gap: 5em;
+    width: inherit;
+    justify-content: center;
+    align-items: center;
+
+
+    @media screen and (min-width:600px) {
+        justify-content: space-around;
+        flex-direction: row;
+
+    }
+}

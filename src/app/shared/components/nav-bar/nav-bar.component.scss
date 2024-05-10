@@ -1,0 +1,127 @@
+.lateral {
+    // display: none;
+    position: fixed;
+    left: -70%;
+    /* Fuera de la pantalla inicialmente */
+    top: 0;
+    width: 70%;
+    height: 100vh;
+    background-color: white;
+    padding: 1em;
+    padding-top: 5em;
+    z-index: 2;
+
+    @media screen and (min-width:500px) {
+        animation: none;
+    }
+}
+
+a {
+    cursor: pointer;
+}
+
+
+
+.lateral__menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+
+.lateral--active {
+    animation: slideInFromLeft 0.5s forwards;
+}
+
+
+.lateral--desactivate {
+    animation: slideOutToLeft 0.5s forwards;
+}
+
+
+
+.lateral--hiden {
+    display: none;
+}
+
+
+
+.lateral__x {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+}
+
+
+
+// animation
+@keyframes slideInFromLeft {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 0;
+    }
+}
+
+
+
+/* Animación para cerrar el menú */
+// @keyframes slideOutToLeft {
+//     0% {
+//         left: 0;
+//     }
+
+//     100% {
+//         left: -100%;
+//     }
+// }
+
+
+
+
+.menu-opacity {
+    display: none;
+    opacity: 0;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: rgb(0, 0, 25);
+    opacity: .5;
+}
+
+// opacity activate
+.menu-opacity--active {
+    display: block;
+    z-index: 1;
+
+    //desktop mediaqueries
+    @media screen and (min-width:730px) {
+        display: none;
+    }
+}
+
+
+.lateral__link {
+    text-transform: uppercase;
+    color: var(--titles-color-light);
+    letter-spacing: 0.5px;
+}
+
+
+.lateral__link--active {
+    color: var(--primary-color);
+}
+
+.lateral__link--inactive {
+    color: var(--light-black-font-color);
+}

@@ -1,0 +1,36 @@
+<div class="wrapper">
+    <div class="carousel">
+        <button class="button button--left" (click)="previewCards()">
+            <img src="/assets/icons/left.svg" alt="left arrow" class="arrow arrow--left">
+        </button>
+        <div class="cards" [ngClass]="{'cards--on': currentIndex == i, 'cards--off': currentIndex != i}"
+            *ngFor="let card of cards; let i = index;">
+            <div class="card" *ngIf="currentIndex == i">
+                <div class="card__header">
+                    <img [src]="card.img" alt="" class="card__img">
+                </div>
+                <div class="card__body">
+                    <h2 class="card__title">{{card.title}}</h2>
+                    <p class="card__text">{{card.text}}</p>
+                </div>
+            </div>
+        </div>
+        <button class="button button--right" (click)="nextCards()">
+            <img src="/assets/icons/right.svg" alt="right arrow" class="arrow arrow--right">
+        </button>
+        <div class="control">
+            <div class="control__index"
+                [ngClass]="{'control__index--on': currentIndex == 0, 'control__index--off': currentIndex != 0}"></div>
+            <div class="control__index"
+                [ngClass]="{'control__index--on': currentIndex == 1, 'control__index--off': currentIndex != 1}"></div>
+            <div class="control__index"
+                [ngClass]="{'control__index--on': currentIndex == 2, 'control__index--off': currentIndex != 2}"></div>
+            <div class="control__index"
+                [ngClass]="{'control__index--on': currentIndex == 3, 'control__index--off': currentIndex != 3}"></div>
+            <div class="control__index"
+                [ngClass]="{'control__index--on': currentIndex == 4, 'control__index--off': currentIndex != 4}"></div>
+            <div class="control__index"
+                [ngClass]="{'control__index--on': currentIndex == 5, 'control__index--off': currentIndex != 5}"></div>
+        </div>
+    </div>
+</div>

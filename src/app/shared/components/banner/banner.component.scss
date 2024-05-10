@@ -1,0 +1,143 @@
+// banner
+.banner {
+    min-height: 100vh;
+    background-image: url('/assets/images/banner.jpg');
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    background-attachment: fixed;
+    min-width: 250px;
+}
+
+
+
+.overlay {
+    background-color: rgb(0, 0, 0, .3);
+    height: 100vh;
+    color: white;
+    animation: slideIn 1s forwards;
+}
+
+.overlay__content {
+    display: flex;
+    flex-direction: column;
+    // padding-top: 6em;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+// overlay animation
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+
+
+
+//banner content
+.banner__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    padding: 1em;
+}
+
+//banner header
+
+//banner title
+.banner__title {
+    font-size: 8vw;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+}
+
+
+//content
+
+.banner__content {
+    display: flex;
+    gap: 3em;
+}
+
+
+
+/**Banner body*/
+.banner__body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 5em;
+}
+
+
+//body information
+.banner__information {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+
+.banner__subtitle {
+    display: flex;
+    justify-content: center;
+}
+
+//subtitle
+
+.banner__subtitle-text {
+    font-size: 2rem;
+    text-align: center;
+}
+
+//text
+
+.banner__texts {}
+
+.banner__text {
+    font-size: 1.2rem;
+    max-width: 600px;
+}
+
+//buttons
+.banner__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3em;
+
+    @media screen and (min-width:700px) {
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 0em;
+    }
+}
+
+.banner__button {
+    border: none;
+    background-color: #dbad4c;
+    // background-color: #31b767;
+    padding: 1em;
+    color: #fff;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #dda53e;
+        background-color: #d09b38;
+    }
+}

@@ -1,0 +1,174 @@
+.about {
+    width: 100%;
+    background-color: var(--white-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding-top: 6em;
+    gap: 5em;
+    // min-height: 100vh;
+    // background-image: url('/assets/images/login2.jpg');
+    // background-position: center;
+    // background-size: cover;
+    // width: 100%;
+    // background-attachment: fixed;
+    // min-width: 250px;
+}
+
+
+.about__title {
+    font-size: 2rem;
+    color: var(--titles-color-light);
+    text-align: center;
+    border-bottom: var(--primary-color) 1px solid;
+    padding: 0.5em;
+    letter-spacing: 1px;
+}
+
+
+
+.wrapper {
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 5em;
+}
+
+
+.mission {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    gap: 2em;
+    width: inherit;
+
+
+    //desktop
+    @media screen and (min-width:850px) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        width: inherit;
+    }
+}
+
+
+
+
+/*text container*/
+
+.mission__texts {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.mission__title {
+    text-align: center;
+    color: var(--primary-color);
+
+
+    //desktop
+    @media screen and (min-width:850px) {
+        text-align: left;
+    }
+}
+
+
+.mission__body {
+    max-width: 500px;
+}
+
+.mission__body-text {
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--light-black-font-color);
+
+    //desktop
+    @media screen and (min-width:850px) {
+        text-align: left;
+        line-height: 1.5;
+    }
+}
+
+
+// .mission__image-wrap {
+//     height: 800px;
+//     border: solid black 1px;
+// }
+
+.mission__image-containter {
+    max-width: 500px;
+    min-width: 300px;
+}
+
+.mission__image {
+    width: 100%;
+}
+
+.team {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    align-items: center;
+    width: 100%;
+    background-color: #f4f3f3;
+    padding: 2em;
+}
+
+.team__title {
+    border-bottom: var(--primary-color) 2px solid;
+    padding: 0.5em;
+    font-size: 1.5rem;
+}
+
+.carousel-desktop {
+    width: inherit;
+}
+
+.carousel-movil {
+    width: inherit;
+}
+
+.carousel-tablet {
+    width: inherit;
+}
+
+
+
+@media screen and (min-width: 1000px) {
+
+    .carousel-movil {
+        display: none;
+    }
+
+    .carousel-tablet {
+        display: none;
+    }
+
+}
+
+
+
+@media screen and (max-width: 1000px) {
+
+    .carousel-movil {
+        display: flex;
+    }
+
+    .carousel-desktop {
+        display: none;
+    }
+
+}
+
+
+
+.mission__title--span {
+    color: var(--titles-color-light);
+}

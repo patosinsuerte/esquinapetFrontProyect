@@ -1,0 +1,74 @@
+<div class="wrapper">
+
+    <div class="content">
+        <!-- <div class="content__titles">
+            <h2 class="content__title">Reserva tu hora aqui</h2>
+
+        </div> -->
+        <div class="form-wrapper">
+
+            <form class="form" autocomplete="off" [formGroup]="myForm" (ngSubmit)="onSave()">
+
+                <div class="form__inputs">
+                    <h2 class="form__title">Datos personales</h2>
+                    <div class="form__group">
+                        <!-- <label for="name">Nombre</label> -->
+                        <input type="text" id="name" placeholder="Nombre" formControlName="name" class="form__input">
+                        <!-- <p class="form__error">Error message</p> -->
+                    </div>
+                    <div class="form__group">
+                        <!-- <label for="lastName">Apellido</label> -->
+                        <input type="text" id="lastName" placeholder="Apellido" formControlName="lastName"
+                            class="form__input">
+                        <!-- <p class="form__error">Error message</p> -->
+                    </div>
+                    <div class="form__group">
+                        <!-- <label for="rut">R.U.T</label> -->
+                        <input type="text" id="rut" placeholder="R.U.T Ej: 20121403-5" formControlName="rut"
+                            class="form__input">
+                        <!-- <p class="form__error">Error message</p> -->
+                    </div>
+                    <div class="form__group">
+                        <!-- <label for="phone">Telefono</label> -->
+                        <input type="text" id="phone" placeholder="Telefono Ej: 968541080" formControlName="phone"
+                            class="form__input">
+                        <!-- <p class="form__error">Error message</p> -->
+                    </div>
+                    <div class="form__group">
+                        <!-- <label for="email">Email</label> -->
+                        <input type="text" id="email" placeholder="Correo" formControlName="email" class="form__input">
+                        <!-- <p class="form__error">Error message</p> -->
+                    </div>
+                    <div class="form__group">
+                        <label for="service">Tipo de servicio</label>
+                        <select name="" id="service" formControlName="serviceType">
+                            <option value="">Selecciona una opcion</option>
+                            <option (click)="convertToServiceType(service.id, service.serviceName)" [value]="service.id"
+                                *ngFor="let service of servicesType">{{service.serviceName}}
+                            </option>
+
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="form__calendar">
+                    <!--Calendario componente-->
+                    <appointment-calendar (emitSelectedDate)="onReceiveDateFromChild($event)"></appointment-calendar>
+                    <!--Hora componente-->
+                    <appointment-avalible-time
+                        (timeToEmit)="onReceiveTimeFromChild($event)"></appointment-avalible-time>
+                    <div class="form__buttons">
+                        <button class="form__button" type="submit">Reservar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <button (click)="createAppointment()">CREATE APPOINTMENTS</button>
+
+
+
+
+</div>

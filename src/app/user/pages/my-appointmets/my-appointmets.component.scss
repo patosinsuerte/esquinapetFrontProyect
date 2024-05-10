@@ -1,0 +1,106 @@
+.wrapper {
+    padding: 2em;
+    height: 100vh;
+    background-color: #f2f2f2;
+    width: 100%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 8px;
+    width: 100%;
+
+}
+
+
+.titles__title {
+    text-align: center;
+
+}
+
+
+
+
+
+/*TABLA*/
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10em;
+
+}
+
+
+td {
+    text-align: center;
+    padding: 1em;
+    border-bottom: 1px solid rgb(51, 51, 51, 0.1);
+}
+
+th {
+    // background-color: #f2f2f2;
+    padding: 1em;
+    border-bottom: 1px solid rgb(51, 51, 51, 0.1);
+}
+
+tbody tr:nth-child(even) {
+    // background-color: #f2f2f2;
+}
+
+
+button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #c82333;
+}
+
+@media only screen and (max-width: 500px) {
+
+    .appointments {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    th,
+    td {
+        display: block;
+        width: auto;
+    }
+
+    th {
+        text-align: center;
+    }
+
+    tbody tr {
+        display: block;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tbody td {
+        display: block;
+        text-align: center;
+    }
+}

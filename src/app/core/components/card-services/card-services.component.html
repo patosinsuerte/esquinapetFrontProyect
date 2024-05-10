@@ -1,0 +1,57 @@
+<div class="cards">
+    <div class="card__title-container">
+        <h2 class="card__title">NUESTROS SERVICIOS</h2>
+    </div>
+
+    <div class="wrapper">
+
+        <div class="wrapper__card">
+
+            <div class="card" *ngFor="let card of cardContent.slice(0,3)">
+                <div class="card__header">
+                    <div class="card__image-container">
+                        <img [src]="card.img" alt="" class="card__img">
+                    </div>
+                </div>
+
+                <div class="card__body">
+                    <div class="card__subtitle-container">
+                        <h2 class="card__subtitle">{{card.title}}</h2>
+                    </div>
+                    <div class="card__information-container">
+                        <p class="card__information-container-text">{{card.text}}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="wrapper__card">
+
+            <div class="card" *ngFor="let card of cardContent.slice(3,6)">
+                <div class="card__header">
+                    <div class="card__image-container">
+                        <img [src]="card.img" alt="" class="card__img">
+                    </div>
+                </div>
+
+                <div class="card__body">
+                    <div class="card__subtitle-container">
+                        <h2 class="card__subtitle">{{card.title}}</h2>
+                    </div>
+                    <div class="card__information-container">
+                        <p class="card__information-container-text">{{card.text}}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+</div>

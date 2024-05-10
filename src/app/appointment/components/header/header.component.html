@@ -1,0 +1,26 @@
+<header class="header">
+    <div class="header__icon">
+        <img src="./assets/images/header-image.jpg" alt="Icon" class="header__icon-image" [routerLink]="'/'">
+    </div>
+    <nav class="nav">
+        <ul class="menu">
+            <li class="menu__item">
+                <a class="menu__link" [routerLink]="'/'">Inicio</a>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link" (click)="setColorLink()"
+                    [ngClass]="{'menu__link--active': appointmentValue === 0}">Reservar Hora</a>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link menu__link--session" [routerLink]="'/auth/login'">Iniciar
+                    sesion</a>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link menu__link--session" [routerLink]="'/auth/register'">Registrarse</a>
+            </li>
+        </ul>
+    </nav>
+    <img src="../assets/icons/menu.svg" alt="menu" class="header__hamburguer"
+        (click)="toggleNavBar() ; toggleOpacity()">
+</header>
+<appointment-nav-bar-appointment></appointment-nav-bar-appointment>

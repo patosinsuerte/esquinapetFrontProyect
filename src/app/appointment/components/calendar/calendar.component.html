@@ -1,0 +1,29 @@
+<div class="wrapper">
+    <div>
+        <h2 class="wrapper__title">Selecciona una fecha y una hora</h2>
+    </div>
+    <div class="wrapper__information">
+        <button class="wrapper__button" type="button" (click)="prevMonth()"><img src="/assets/icons/left.svg"
+                alt=""></button>
+        <h2 class="wrapper__monthName">{{dynamicMonthTitle | date: 'MMMM - yyyy'}}</h2>
+        <button class="wrapper__button" type="button" (click)="nextMonth()"><img src="/assets/icons/right.svg"
+                alt=""></button>
+    </div>
+
+    <ol class="calendar">
+        <li class="calendar__daysOfWeek" *ngFor="let dayOfWeek of daysOfWeek">{{dayOfWeek}}</li>
+
+        <!-- <li class="caElendar__daysOfMonth" *ngFor="let dayOfMonth of daysOfMonth; let first = first; let i = index"
+            [ngStyle]="{'grid-column-start': first ? lastDayOfCurrentMonth : 'auto'}"
+            (click)="setDateSelectedByUser(i +1, currentMonth)">{{dayOfMonth}}</li> -->
+        <li class="calendar__daysOfMonth" *ngFor="let dayOfMonth of daysOfMonth; let first = first; let i = index"
+            [ngStyle]="{'grid-column-start': first ? lastDayOfCurrentMonth : 'auto'}"
+            (click)="setDateSelectedByUser(i + 1, currentMonth); onSetBackgroundToDay(i+1)"
+            [ngClass]="{'calendar__daysOfMonth--active': selectedDay == i + 1}">
+            {{ dayOfMonth < 10 ? '0' + dayOfMonth : dayOfMonth }} </li>
+
+
+    </ol>
+
+
+</div>

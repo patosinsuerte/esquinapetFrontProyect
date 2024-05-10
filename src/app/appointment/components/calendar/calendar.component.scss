@@ -1,0 +1,64 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+}
+
+h2 {
+    text-align: center;
+    color: var(--titles-color-light);
+    font-size: 1.3rem;
+}
+
+
+.wrapper__information {
+    display: flex;
+    gap: 2em;
+    text-align: center;
+    justify-content: center;
+
+}
+
+
+.wrapper__button {
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1em;
+
+}
+
+
+.calendar__daysOfMonth {
+    cursor: pointer;
+    border-radius: 50%;
+    padding-top: 0.3em;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+
+.calendar__daysOfMonth:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.calendar__daysOfMonth--active {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+
+
+
+ol {
+    list-style: none;
+}
