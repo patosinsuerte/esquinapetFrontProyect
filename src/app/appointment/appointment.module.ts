@@ -11,6 +11,7 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { AvalibleTimeComponent } from './components/avalible-time/avalible-time.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 
@@ -21,13 +22,14 @@ import { HttpClientModule } from '@angular/common/http';
         HeaderComponent,
         NavBarAppointmentComponent,
         CalendarComponent,
-        AvalibleTimeComponent,
+        AvalibleTimeComponent
     ],
     imports: [
         CommonModule,
         AppointmentRoutingModule,
         MaterialModule,
         ReactiveFormsModule,
+        PipesModule
     ]
 })
 export class AppointmentModule { }

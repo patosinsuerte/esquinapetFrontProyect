@@ -1,7 +1,7 @@
-import { AppointmentResponseDTO } from "./appointmentResponseDTO.interface";
 
-export interface RegisteredUserDTO {
+import { AppointmentResponseDTO } from "../../appointment/interfaces/appointmentResponseDTO.interface";
 
+export interface RegisteredUserResponse {
     id: number;
     name: string;
     lastName: string;
@@ -9,6 +9,7 @@ export interface RegisteredUserDTO {
     phone: string;
     rut: string;
     role: string;
+    isActive: boolean;
     jwt: string;
-    appointments: AppointmentResponseDTO;
+    appointments: AppointmentResponseDTO[] | null;
 }

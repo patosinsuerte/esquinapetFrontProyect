@@ -11,6 +11,7 @@ import { AuthHeaderComponent } from './components/auth-header/auth-header.compon
 import { AuthNavBarComponent } from './components/auth-nav-bar/auth-nav-bar.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({

@@ -21,14 +21,19 @@
                 <a class="menu__link" (click)="scrollTo('contact'); setContactLink()"
                     [ngClass]="getActiveLink === 3 ? 'menu__link--active': 'menu__link--inactive'">Contacto</a>
             </li>
-            <li class="menu__item">
+            <li class="menu__item" *ngIf="authStatus() === statusValues.AUTHENTICATED">
                 <a class="menu__link" [routerLink]="'/appointments'">Reservar Hora</a>
             </li>
-            <li class="menu__item">
+            <li class="menu__item"
+                *ngIf="authStatus() === statusValues.NOTAUTHENTICATED || authStatus() === statusValues.CHECKING">
                 <a class="menu__link menu__link--session" [routerLink]="'/auth/login'">Iniciar
                     sesion</a>
             </li>
-            <li class="menu__item">
+            <li class="menu__item" *ngIf="authStatus() === statusValues.AUTHENTICATED">
+                <a class="menu__link menu__link--session" [routerLink]="'/dashboard'">Mis Citas</a>
+            </li>
+            <li class="menu__item"
+                *ngIf="authStatus() === statusValues.NOTAUTHENTICATED || authStatus() === statusValues.CHECKING">
                 <a class="menu__link menu__link--session" [routerLink]="'/auth/register'">Registrarse</a>
             </li>
         </ul>

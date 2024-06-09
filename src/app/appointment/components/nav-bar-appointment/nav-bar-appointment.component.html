@@ -5,14 +5,18 @@
         <li class="lateral__item">
             <a class="lateral__link" [routerLink]="'/'" (click)="offNavMenu(); offOpacity()">Inicio</a>
         </li>
-        <li class=" lateral__item">
+        <li class=" lateral__item" *ngIf="sessionStatus() === statusValues.NOTAUTHENTICATED">
             <a class="lateral__link menu__link--session" [routerLink]="'/auth/login'"
                 (click)="offNavMenu(); offOpacity()">Iniciar
                 sesion</a>
         </li>
-        <li class="lateral__item">
+        <li class="lateral__item" *ngIf="sessionStatus() === statusValues.NOTAUTHENTICATED">
             <a class="lateral__link menu__link--session" [routerLink]="'/auth/register'"
                 (click)="offNavMenu(); offOpacity()">Registrarse</a>
+        </li>
+        <li class="lateral__item" *ngIf="sessionStatus() === statusValues.AUTHENTICATED">
+            <a class="lateral__link menu__link--session" [routerLink]="'/dashboard'"
+                (click)="offNavMenu(); offOpacity()">Mis citas</a>
         </li>
     </ul>
     <img src="../assets/icons/x.svg" alt="X" class="lateral__x" (click)="offNavMenu(); offOpacity()">

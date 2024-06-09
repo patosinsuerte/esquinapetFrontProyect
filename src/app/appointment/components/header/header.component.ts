@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, computed } from '@angular/core';
 import { NavBarService } from '../../../shared/services/navbar.service';
 import { ActivateLinkColorService } from '../../../shared/services/activateLinkColor.service';
 import { ScrollService } from '../../../shared/services/scroll.service';
+import { AuthService } from '../../../auth/services/auth.service';
+import { AuthStatus } from '../../../auth/interfaces/authStatus.enum';
 
 
 
@@ -14,9 +16,14 @@ export class HeaderComponent implements OnInit {
     constructor(
         public navBarService: NavBarService,
         private activateLinkService: ActivateLinkColorService,
-        private scrollService: ScrollService
+        private scrollService: ScrollService,
+        private authService: AuthService
 
     ) { }
+
+    public sessionStatus = computed(() => this.authService.authStatus());
+    public statusValues = AuthStatus;
+
 
     ngOnInit(): void {
         this.scrollService.scrollToTop();

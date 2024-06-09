@@ -34,19 +34,15 @@
 .nav {
     display: none;
 
-    @media screen and (min-width:720px) {
-
+    @media screen and (min-width: 720px) {
         display: block;
-
     }
 }
-
 
 .menu {
     display: flex;
     gap: 2em;
 }
-
 
 .menu__link {
     cursor: pointer;
@@ -62,7 +58,6 @@
     }
 }
 
-
 .menu__link--active {
     color: var(--primary-color);
 }
@@ -75,8 +70,6 @@
     color: var(--primary-color);
 }
 
-
-
 .header__hamburguer {
     width: 40px;
     height: 40px;
@@ -87,14 +80,10 @@
     }
 }
 
-
 /*nav bar bug*/
 
-@media screen and (min-width:720px) {
-
+@media screen and (min-width: 720px) {
     .navbar {
         display: none;
     }
-
-
 }

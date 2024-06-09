@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
 import { MyAppointmetsComponent } from './pages/my-appointmets/my-appointmets.component';
+import { UserPageComponent } from './pages/user-page/user-page.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,10 @@ const routes: Routes = [
             {
                 path: 'appointments',
                 component: MyAppointmetsComponent
+            },
+            {
+                path: 'user',
+                component: UserPageComponent
             },
             {
                 path: '**',
@@ -25,4 +30,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class UserRoutingModule { }
+export class DashboardRoutingModule { }

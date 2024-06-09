@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { ActivateLinkColorService } from '../../../shared/services/activateLinkColor.service';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from '../../../shared/services/http.service';
 import { Observable, catchError, map, of } from 'rxjs';
 import { ValidationService } from '../../../shared/services/validation.service';
 import { SaveUserDTO } from '../../interfaces/saveUserDTO.interface';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'auth-register-page',
@@ -16,19 +18,23 @@ export class RegisterPageComponent {
     constructor(
         private fb: FormBuilder,
         private httpService: HttpService,
-        private validationService: ValidationService
-    ) { }
+        private validationService: ValidationService,
+        private authService: AuthService,
+        private router: Router
+    ) {
+
+    }
 
 
     // f
     public registerForm: FormGroup = this.fb.group({
-        rut: ['', [Validators.required, Validators.pattern(this.validationService.rutRegex)], [this.validationService.rutHasExist]],
-        name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.validationService.nameRegex)]],
-        lastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.validationService.nameRegex)]],
-        email: ['', [Validators.required, Validators.pattern(this.validationService.emailRegex)], [this.validationService.emailHasExist], { updateOn: 'blur' }],
-        phone: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9), Validators.pattern(this.validationService.phoneRegex)], [this.validationService.phoneHasExist], { updateOn: 'blur' }],
-        password: ['', [Validators.required, Validators.maxLength(100), Validators.pattern(this.validationService.passwordRegex)]],
-        repeatedPassword: ['', [Validators.required, Validators.maxLength(100), Validators.pattern(this.validationService.passwordRegex)]]
+        rut: ['20.120.159-7', [Validators.required, Validators.pattern(this.validationService.rutRegex)], [this.validationService.rutHasExist]],
+        name: ['Joaquin', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.validationService.nameRegex)]],
+        lastName: ['Valencia', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.validationService.nameRegex)]],
+        email: ['joaco@gmail.com', [Validators.required, Validators.pattern(this.validationService.emailRegex)], [this.validationService.emailHasExist], { updateOn: 'blur' }],
+        phone: ['978451236', [Validators.required, Validators.minLength(9), Validators.maxLength(9), Validators.pattern(this.validationService.phoneRegex)], [this.validationService.phoneHasExist], { updateOn: 'blur' }],
+        password: ['A12345678', [Validators.required, Validators.maxLength(100), Validators.pattern(this.validationService.passwordRegex)]],
+        repeatedPassword: ['A12345678', [Validators.required, Validators.maxLength(100), Validators.pattern(this.validationService.passwordRegex)]]
     }, { validators: [this.validationService.isFieldOneEqualFieldTwo('password', 'repeatedPassword')] });
 
 
@@ -82,7 +88,9 @@ export class RegisterPageComponent {
 
     // obtener el campo para mostrar el mensaje de error
     getFieldErrors(field: string): string | null {
-        const control = this.registerForm.controls[field];
+
+        const control: AbstractControl = this.registerForm.controls[field];
+
         if (!control) {
             return null;
         }
@@ -107,13 +115,11 @@ export class RegisterPageComponent {
             return;
         }
 
-        const { repeatedPassword, ...formValues } = this.registerForm.value;
+        const formValues = this.registerForm.value;
 
 
 
-        let newUser: SaveUserDTO = formValues;
-        console.log('Datos para el back: ', { newUser });
-        console.log('Datos brutos: ', this.registerForm.value)
+        this.regiser(formValues);
         this.registerForm.reset();
         this.registerForm.markAllAsTouched();
     }
@@ -122,6 +128,18 @@ export class RegisterPageComponent {
 
 
 
+    regiser(newUser: SaveUserDTO) {
+        this.authService.register(newUser)
+            .subscribe(({
+                next: (res) => {
+                    this.router.navigateByUrl('/dashboard');
+                },
+                // error: (err) => console.log(err)
+            }));
+    }
+
+
 }
+
 
 

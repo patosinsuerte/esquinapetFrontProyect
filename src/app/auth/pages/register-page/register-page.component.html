@@ -3,89 +3,46 @@
         <div class="container__header">
             <h2 class="container__header-text">Registrarse</h2>
         </div>
-        <form  autocomplete="off" class="form" [formGroup]="registerForm" (ngSubmit)="onSave()">
+        <form autocomplete="off" class="form" [formGroup]="registerForm" (ngSubmit)="onSave()">
             <div class="form__item">
-                <img
-                    src="/assets/icons/rut.svg"
-                    alt="RUT"
-                    class="form__img"
-                    draggable="false"
-                />
+                <img src="/assets/icons/rut.svg" alt="RUT" class="form__img" draggable="false" />
                 <input type="text" placeholder="R.U.T: XX.XXX.XXX-X" class="form__input" formControlName="rut" />
-                
-                
+
+
                 <span *ngIf="isValidField('rut')" class="form__error">{{getFieldErrors('rut')}}</span>
 
             </div>
             <div class="form__item">
-                <img
-                    src="/assets/icons/user.svg"
-                    alt="Name"
-                    class="form__img"
-                    draggable="false"
-                />
-                <input type="text" placeholder="Nombre" class="form__input" formControlName="name"/>
+                <img src="/assets/icons/user.svg" alt="Name" class="form__img" draggable="false" />
+                <input type="text" placeholder="Nombre" class="form__input" formControlName="name" />
                 <span *ngIf="isValidField('name')" class="form__error">{{getFieldErrors('name')}}</span>
             </div>
             <div class="form__item">
-                <img
-                    src="/assets/icons/user.svg"
-                    alt="lastName"
-                    class="form__img"
-                    draggable="false"
-                />
-                <input type="text" placeholder="Apellido" class="form__input" formControlName="lastName"/>
+                <img src="/assets/icons/user.svg" alt="lastName" class="form__img" draggable="false" />
+                <input type="text" placeholder="Apellido" class="form__input" formControlName="lastName" />
                 <span *ngIf="isValidField('lastName')" class="form__error">{{getFieldErrors('lastName')}}</span>
             </div>
             <div class="form__item">
-                <img
-                    src="/assets/icons/mail.svg"
-                    alt="email"
-                    class="form__img"
-                    draggable="false"
-                />
-                <input type="email" placeholder="Email" class="form__input" formControlName="email"/>
+                <img src="/assets/icons/mail.svg" alt="email" class="form__img" draggable="false" />
+                <input type="email" placeholder="Email" class="form__input" formControlName="email" />
                 <span *ngIf="isValidField('email')" class="form__error">{{getFieldErrors('email')}}</span>
             </div>
             <div class="form__item">
-                <img
-                    src="/assets/icons/phone.svg"
-                    alt="Phone"
-                    class="form__img"
-                    draggable="false"
-                />
-                <input type="text"  placeholder="Celular: 9XXXXXXXX" class="form__input" formControlName="phone"/>
+                <img src="/assets/icons/phone.svg" alt="Phone" class="form__img" draggable="false" />
+                <input type="text" placeholder="Celular: 9XXXXXXXX" class="form__input" formControlName="phone" />
                 <span *ngIf="isValidField('phone')" class="form__error">{{getFieldErrors('phone')}}</span>
             </div>
             <div class="form__item">
-                <img
-                    src="/assets/icons/lock.svg"
-                    alt="password"
-                    class="form__img"
-                    draggable="false"
-                />
-                <input
-                    type="password"
-                    placeholder="Contraseña"
-                    class="form__input"
-                    formControlName="password"
-                />
+                <img src="/assets/icons/lock.svg" alt="password" class="form__img" draggable="false" />
+                <input type="password" placeholder="Contraseña" class="form__input" formControlName="password" />
                 <span *ngIf="isValidField('password')" class="form__error">{{getFieldErrors('password')}}</span>
             </div>
             <div class="form__item">
-                <img
-                    src="/assets/icons/lock.svg"
-                    alt="password"
-                    class="form__img"
-                    draggable="false"
-                />
-                <input
-                    type="password"
-                    placeholder="Repite la contraseña"
-                    class="form__input"
-                    formControlName="repeatedPassword"
-                />
-                <span *ngIf="isValidField('repeatedPassword')" class="form__error">{{getFieldErrors('repeatedPassword')}}</span>
+                <img src="/assets/icons/lock.svg" alt="password" class="form__img" draggable="false" />
+                <input type="password" placeholder="Repite la contraseña" class="form__input"
+                    formControlName="repeatedPassword" />
+                <span *ngIf="isValidField('repeatedPassword')"
+                    class="form__error">{{getFieldErrors('repeatedPassword')}}</span>
             </div>
             <div class="form__buttons">
                 <button class="form__button">Registrarse</button>
@@ -93,16 +50,13 @@
         </form>
         <!--BOTONES OLVIDE CONTRASENA-->
         <div class="container__footer">
-            <a class="container__footer-link" [routerLink]="'/auth/login'"
-                >Ya tienes una cuenta?</a
-            >
+            <a class="container__footer-link" [routerLink]="'/auth/login'">Ya tienes una cuenta?</a>
         </div>
     </div>
 </div>
 
-<h2>TESTEO</h2>
 
-<div class="col">
+<!-- <div class="col">
     <span>Valid</span>
     <pre>{{registerForm.valid| json}}</pre>
 
@@ -173,6 +127,6 @@
 
 
 
-</div>
+</div> -->
 
 <shared-footer></shared-footer>

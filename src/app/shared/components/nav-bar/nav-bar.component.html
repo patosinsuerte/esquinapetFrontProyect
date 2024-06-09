@@ -22,15 +22,20 @@
             <a class="lateral__link menu__link--session" [routerLink]="'/appointments/create'"
                 (click)="offNavMenu(); offOpacity()">Reservar hora</a>
         </li>
-        <li class="lateral__item">
+        <li class="lateral__item" *ngIf="authStatus() === statusValues.NOTAUTHENTICATED">
             <a class="lateral__link menu__link--session" [routerLink]="'/auth/login'"
                 [ngClass]="getActiveLink === 4 ? 'menu__link--active': 'menu__link--inactive'"
                 (click)="offNavMenu(); offOpacity()">Iniciar sesion</a>
         </li>
-        <li class="lateral__item">
+        <li class="lateral__item" *ngIf="authStatus() === statusValues.NOTAUTHENTICATED">
             <a class="lateral__link menu__link--session" [routerLink]="'/auth/register'"
                 [ngClass]="getActiveLink === 5 ? 'menu__link--active': 'menu__link--inactive'"
                 (click)="offNavMenu(); offOpacity()">Registrarse</a>
+        </li>
+        <li class="lateral__item" *ngIf="authStatus() === statusValues.AUTHENTICATED">
+            <a class="lateral__link menu__link--session" [routerLink]="'/dashboard'"
+                [ngClass]="getActiveLink === 5 ? 'menu__link--active': 'menu__link--inactive'"
+                (click)="offNavMenu(); offOpacity()">Mis Citas</a>
         </li>
     </ul>
     <img src="../assets/icons/x.svg" alt="X" class="lateral__x" (click)="offNavMenu(); offOpacity()">

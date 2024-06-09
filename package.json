@@ -3,8 +3,9 @@
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
-        "start": "ng serve",
-        "build": "ng build",
+        "envs": "node ./scripts/set-envs.js",
+        "start": "npm run envs && ng serve",
+        "build": "pm run envs && ng build",
         "watch": "ng build --watch --configuration development",
         "test": "ng test"
     },
@@ -21,8 +22,10 @@
         "@angular/platform-browser-dynamic": "^17.1.0",
         "@angular/router": "^17.1.0",
         "i": "^0.3.7",
+        "mapbox-gl": "^3.4.0",
         "moment": "^2.30.1",
         "rxjs": "~7.8.0",
+        "sweetalert2": "^11.11.0",
         "tslib": "^2.3.0",
         "zone.js": "~0.14.3"
     },
@@ -31,6 +34,8 @@
         "@angular/cli": "^17.1.2",
         "@angular/compiler-cli": "^17.1.0",
         "@types/jasmine": "~5.1.0",
+        "@types/mapbox-gl": "^3.1.0",
+        "dotenv": "^16.4.5",
         "jasmine-core": "~5.1.0",
         "karma": "~6.4.0",
         "karma-chrome-launcher": "~3.2.0",

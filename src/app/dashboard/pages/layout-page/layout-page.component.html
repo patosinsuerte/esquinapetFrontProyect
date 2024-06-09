@@ -11,7 +11,7 @@
             </button>
         </mat-toolbar>
         <mat-nav-list>
-            <mat-list-item (click)="sidenav.toggle()" [routerLink]="'/user/appointments'">
+            <mat-list-item (click)="sidenav.toggle()" [routerLink]="'/dashboard/appointments'">
                 <mat-icon matListItemIcon><img src="/assets/icons/clipboard.svg" alt="clipboard"></mat-icon>
                 Mis citas
             </mat-list-item>
@@ -27,17 +27,25 @@
             <mat-icon><img src="/assets/icons/menu.svg" alt="Menu" class="primary-toolbar__menu"></mat-icon>
         </button>
         <div class="primary-toolbar__items">
-            <!-- <a [routerLink]="'/'" class="primary-toolbar__item">Inicio</a> -->
-            <a [routerLink]="'/'" class="primary-toolbar__item">Mi Perfil</a>
-            <button mat-button>Cerrar sesion</button>
+            <a [routerLink]="'/'" class="primary-toolbar__item" class="primary-toolbar__button" mat-button>Inicio</a>
+            <a [routerLink]="'/dashboard/user'" class="primary-toolbar__item" class="primary-toolbar__button"
+                mat-button>Mi
+                Perfil</a>
+            <button mat-button (click)="logout()" class="primary-toolbar__button">Cerrar sesion</button>
         </div>
-
     </mat-toolbar>
 
     <div class="container">
         <router-outlet></router-outlet>
     </div>
+
+
+
 </mat-sidenav-container>
+
+
+
+
 
 
 

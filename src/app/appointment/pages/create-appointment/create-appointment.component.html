@@ -1,5 +1,4 @@
 <div class="wrapper">
-
     <div class="content">
         <!-- <div class="content__titles">
             <h2 class="content__title">Reserva tu hora aqui</h2>
@@ -13,51 +12,74 @@
                     <h2 class="form__title">Datos personales</h2>
                     <div class="form__group">
                         <!-- <label for="name">Nombre</label> -->
-                        <input type="text" id="name" placeholder="Nombre" formControlName="name" class="form__input">
+                        <input type="text" id="name" placeholder="Nombre" formControlName="name" class="form__input"
+                            readonly>
                         <!-- <p class="form__error">Error message</p> -->
                     </div>
                     <div class="form__group">
                         <!-- <label for="lastName">Apellido</label> -->
                         <input type="text" id="lastName" placeholder="Apellido" formControlName="lastName"
-                            class="form__input">
+                            class="form__input" readonly>
                         <!-- <p class="form__error">Error message</p> -->
+                    </div>
+                    <div class="form__group">
+                        <!-- <label for="name">Nombre</label> -->
+                        <input type="text" id="name" placeholder="Nombre de mascota" formControlName="petName"
+                            class="form__input">
+                        <p class="form__error" *ngIf="isValidField('petName')">{{getFieldErrors('petName')}}</p>
                     </div>
                     <div class="form__group">
                         <!-- <label for="rut">R.U.T</label> -->
                         <input type="text" id="rut" placeholder="R.U.T Ej: 20121403-5" formControlName="rut"
-                            class="form__input">
+                            class="form__input" readonly>
                         <!-- <p class="form__error">Error message</p> -->
                     </div>
                     <div class="form__group">
                         <!-- <label for="phone">Telefono</label> -->
                         <input type="text" id="phone" placeholder="Telefono Ej: 968541080" formControlName="phone"
-                            class="form__input">
+                            class="form__input" readonly>
                         <!-- <p class="form__error">Error message</p> -->
                     </div>
                     <div class="form__group">
                         <!-- <label for="email">Email</label> -->
-                        <input type="text" id="email" placeholder="Correo" formControlName="email" class="form__input">
+                        <input type="text" id="email" placeholder="Correo" formControlName="email" class="form__input"
+                            readonly>
                         <!-- <p class="form__error">Error message</p> -->
                     </div>
                     <div class="form__group">
                         <label for="service">Tipo de servicio</label>
-                        <select name="" id="service" formControlName="serviceType">
-                            <option value="">Selecciona una opcion</option>
-                            <option (click)="convertToServiceType(service.id, service.serviceName)" [value]="service.id"
-                                *ngFor="let service of servicesType">{{service.serviceName}}
+                        <select name="" id="service" formControlName="serviceTypeId">
+                            <option disabled>Selecciona una opcion</option>
+                            <option [value]="services.id" *ngFor="let services of servicesType">{{services.serviceName |
+                                servicesType}}
                             </option>
-
                         </select>
+                        <p class="form__error" *ngIf="isValidField('serviceTypeId')">{{getFieldErrors('serviceTypeId')}}
+                        </p>
+                    </div>
+                    <div class="form__group">
+                        <label for="service">Tipo de mascota</label>
+                        <select name="" id="service" formControlName="petId">
+                            <option disabled>Selecciona una opcion</option>
+                            <option [value]="pet.id" *ngFor="let pet of petType">{{pet.petType | lowercase}}
+                            </option>
+                        </select>
+                        <p class="form__error" *ngIf="isValidField('petId')">{{getFieldErrors('petId')}}
                     </div>
 
                 </div>
 
                 <div class="form__calendar">
                     <!--Calendario componente-->
-                    <appointment-calendar (emitSelectedDate)="onReceiveDateFromChild($event)"></appointment-calendar>
+
+                    <appointment-calendar (emitSelectedDate)="onReceiveDateFromChild($event)"
+                        (availiableTimesUpdated)="onRecievevailibleTimes($event)"></appointment-calendar>
+
                     <!--Hora componente-->
-                    <appointment-avalible-time
-                        (timeToEmit)="onReceiveTimeFromChild($event)"></appointment-avalible-time>
+                    <appointment-avalible-time (timeToEmit)="onReceiveTimeFromChild($event)"
+                        [availiableTimes]="timesToEmit"></appointment-avalible-time>
+                    <p class="form__error" *ngIf="isValidField('time')">{{getFieldErrors('time')}}
+                    <p class="form__error" *ngIf="isValidField('date')">{{getFieldErrors('date')}}
                     <div class="form__buttons">
                         <button class="form__button" type="submit">Reservar</button>
                     </div>
@@ -65,10 +87,5 @@
             </form>
         </div>
     </div>
-
-    <button (click)="createAppointment()">CREATE APPOINTMENTS</button>
-
-
-
 
 </div>

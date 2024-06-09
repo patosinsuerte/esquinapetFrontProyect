@@ -18,7 +18,7 @@
             (click)="setDateSelectedByUser(i +1, currentMonth)">{{dayOfMonth}}</li> -->
         <li class="calendar__daysOfMonth" *ngFor="let dayOfMonth of daysOfMonth; let first = first; let i = index"
             [ngStyle]="{'grid-column-start': first ? lastDayOfCurrentMonth : 'auto'}"
-            (click)="setDateSelectedByUser(i + 1, currentMonth); onSetBackgroundToDay(i+1)"
+            (click)="setDateSelectedByUser(i + 1, currentMonth); onSetBackgroundToDay(i+1); loadAvailableTimes()"
             [ngClass]="{'calendar__daysOfMonth--active': selectedDay == i + 1}">
             {{ dayOfMonth < 10 ? '0' + dayOfMonth : dayOfMonth }} </li>
 

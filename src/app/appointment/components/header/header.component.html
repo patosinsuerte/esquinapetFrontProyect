@@ -11,12 +11,15 @@
                 <a class="menu__link" (click)="setColorLink()"
                     [ngClass]="{'menu__link--active': appointmentValue === 0}">Reservar Hora</a>
             </li>
-            <li class="menu__item">
+            <li class="menu__item" *ngIf="sessionStatus() === statusValues.NOTAUTHENTICATED">
                 <a class="menu__link menu__link--session" [routerLink]="'/auth/login'">Iniciar
                     sesion</a>
             </li>
-            <li class="menu__item">
+            <li class="menu__item" *ngIf="sessionStatus() === statusValues.NOTAUTHENTICATED">
                 <a class="menu__link menu__link--session" [routerLink]="'/auth/register'">Registrarse</a>
+            </li>
+            <li class="menu__item" *ngIf="sessionStatus() === statusValues.AUTHENTICATED">
+                <a class="menu__link menu__link--session" [routerLink]="'/dashboard'">Mis citas</a>
             </li>
         </ul>
     </nav>

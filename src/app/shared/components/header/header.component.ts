@@ -1,7 +1,9 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, computed } from '@angular/core';
 import { NavBarService } from '../../services/navbar.service';
 import { ScrollService } from '../../services/scroll.service';
 import { ActivateLinkColorService } from '../../services/activateLinkColor.service';
+import { AuthService } from '../../../auth/services/auth.service';
+import { AuthStatus } from '../../../auth/interfaces/authStatus.enum';
 
 @Component({
     selector: 'shared-header',
@@ -14,9 +16,18 @@ export class HeaderComponent implements OnInit {
     constructor(
         private navBarService: NavBarService,
         private scrollService: ScrollService,
+        private authService: AuthService,
         private activateLinkColorService: ActivateLinkColorService,
 
     ) { }
+
+    public authStatus = computed(() => this.authService.authStatus());
+    public statusValues = AuthStatus;
+
+
+
+
+
     ngOnInit(): void {
         this.activateLinkColorService.setCurrentSection();
     }

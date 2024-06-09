@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
-import { Observable, catchError, map, of } from 'rxjs';
+import { Observable, catchError, map, of, throwError } from 'rxjs';
 import { ValidationDTO } from '../../auth/interfaces/validation.interface';
 import { AbstractControl, AsyncValidator, FormControl, FormGroup, ValidationErrors } from '@angular/forms';
 
@@ -36,17 +36,15 @@ export class ValidationService {
 
             if (field1Value != field2Value) {
                 formGroup.get(field2)?.setErrors({ notEqual: true });
-                return { notEqual: true }
+                return { notEqual: true };
             }
 
             formGroup.get(field2)?.setErrors(null);
 
             return null;
-        }
+        };
 
     }
-
-
 
     //validaciones asincronas
     public emailHasExist = (control: FormControl): Observable<ValidationErrors | null> => {
@@ -56,14 +54,14 @@ export class ValidationService {
             .pipe(
                 map(res => {
                     if (!res.exist) {
+                        console.log(null);
                         return null; // Devuelve null si res.exist es false
                     } else {
                         return { message: res.message, exist: res.exist };
                     }
-                })
+                }),
+                catchError((err) => throwError(() => err.error.message))
             );
-
-
     };
 
     public phoneHasExist = (control: FormControl): Observable<ValidationErrors | null> => {
@@ -77,7 +75,8 @@ export class ValidationService {
                     } else {
                         return { message: res.message, exist: res.exist };
                     }
-                })
+                }),
+                catchError((err) => throwError(() => err.error.message))
             );
     };
 
@@ -92,7 +91,27 @@ export class ValidationService {
                     } else {
                         return { message: res.message, exist: res.exist };
                     }
-                })
+                }),
+                catchError((err) => throwError(() => err.error.message))
+            );
+    };
+
+
+
+    // validacion login
+    public emailHasNotExist = (control: FormControl): Observable<ValidationErrors | null> => {
+        const emailValue = control.value.trim().toLowerCase();
+
+        return this.httpService.validationOfUniqueField('email', emailValue)
+            .pipe(
+                map(res => {
+                    if (!res.exist) {
+                        return { message: res.message, exist: res.exist };
+                    } else {
+                        return null;
+                    }
+                }),
+                catchError((err) => throwError(() => err.error.message))
             );
     };
 
@@ -100,3 +119,5 @@ export class ValidationService {
 
 
 }
+
+

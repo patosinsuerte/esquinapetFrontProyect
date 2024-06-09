@@ -12,20 +12,18 @@
                     <th>Nombre mascota</th>
                     <th>Fecha</th>
                     <th>Hora</th>
+                    <th>Motivo de hora</th>
                     <th>Cancelar hora</th>
                 </tr>
                 <tbody class="tbody">
-                    <tr>
-                        <td>Valentino</td>
-                        <td>22/10/1998</td>
-                        <td>10:30am</td>
-                        <td><button>Cancelar</button></td>
-                    </tr>
-                    <tr>
-                        <td>Jostin</td>
-                        <td>22/10/1998</td>
-                        <td>10:30am</td>
-                        <td><button>Cancelar</button></td>
+                    <tr *ngFor="let appointment of appointments()">
+                        <td>{{appointment.petName}}</td>
+                        <td>{{appointment.date | date: 'dd/MM/yyyy'}}</td>
+                        <td>{{appointment.time}}</td>
+                        <!-- <td>{{appointments.sereviceType.serviceName}}</td> -->
+                        <td>{{appointment.serviceType.serviceName| servicesType}}</td>
+
+                        <td><button (click)="cancelAppointment(appointment.id)">Cancelar</button></td>
                     </tr>
                 </tbody>
             </table>

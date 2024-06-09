@@ -9,16 +9,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 
-registerLocaleData(localeEs)
+
+registerLocaleData(localeEs);
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         CoreModule,
-        HttpClientModule
+        HttpClientModule,
+
     ],
     providers: [
         provideAnimationsAsync(),

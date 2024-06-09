@@ -1,11 +1,14 @@
-export interface Appointment {
+export interface AppointmentDTO {
     name: string;
     lastName: string;
+    petName: string;
     rut: string;
     phone: string;
+    isActive: boolean;
     email: string;
     date: string;
     time: string;
     isAvailable: boolean;
-    sereviceType: number
+    serviceType: number;
+    petType: number;
 }

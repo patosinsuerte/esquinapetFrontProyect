@@ -1,4 +1,5 @@
-import { AppointmentResponseDTO } from "./appointmentResponseDTO.interface";
+
+import { AppointmentResponseDTO } from "../../appointment/interfaces/appointmentResponseDTO.interface";
 
 export interface UserProfileDTO {
 
@@ -9,5 +10,6 @@ export interface UserProfileDTO {
     phone: string;
     rut: string;
     role: string;
-    appointments: AppointmentResponseDTO[]
+    isActive: boolean;
+    appointments: AppointmentResponseDTO[] | null;
 }

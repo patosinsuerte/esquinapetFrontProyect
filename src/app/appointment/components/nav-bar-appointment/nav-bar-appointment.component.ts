@@ -1,5 +1,7 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, computed } from '@angular/core';
 import { NavBarService } from '../../../shared/services/navbar.service';
+import { AuthService } from '../../../auth/services/auth.service';
+import { AuthStatus } from '../../../auth/interfaces/authStatus.enum';
 
 @Component({
     selector: 'appointment-nav-bar-appointment',
@@ -9,8 +11,12 @@ import { NavBarService } from '../../../shared/services/navbar.service';
 export class NavBarAppointmentComponent {
     constructor(
         public navBarService: NavBarService,
+        private authService: AuthService
     ) { }
 
+
+    public sessionStatus = computed(() => this.authService.authStatus());
+    public statusValues = AuthStatus;
 
     offNavMenu(): void {
         this.navBarService.navBarIsActive = !this.navBarService.navBarIsActive;

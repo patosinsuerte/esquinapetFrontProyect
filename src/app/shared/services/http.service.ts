@@ -11,7 +11,7 @@ import { SaveUserDTO } from '../../auth/interfaces/saveUserDTO.interface';
 export class HttpService {
 
 
-    private baseUrl: string = 'http://localhost:8083'
+    private baseUrl: string = 'http://localhost:8083';
 
     constructor(private http: HttpClient) { }
 
@@ -32,13 +32,7 @@ export class HttpService {
 
 
 
-    // Registrar un usuario
 
-    // public createOneUser(newUser: SaveUserDTO) {
-
-    //     this.http.post<SaveUserDTO>(`${this.baseUrl}/users/create/user`)
-    //         .
-    // }
 
 
 }

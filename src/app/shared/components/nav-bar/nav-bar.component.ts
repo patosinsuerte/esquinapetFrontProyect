@@ -1,7 +1,9 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, computed } from '@angular/core';
 import { ScrollService } from '../../services/scroll.service';
 import { ActivateLinkColorService } from '../../services/activateLinkColor.service';
 import { NavBarService } from '../../services/navbar.service';
+import { AuthService } from '../../../auth/services/auth.service';
+import { AuthStatus } from '../../../auth/interfaces/authStatus.enum';
 
 @Component({
     selector: 'shared-nav-bar',
@@ -12,8 +14,22 @@ export class NavBarComponent {
     constructor(
         public navBarService: NavBarService,
         private activeLinkService: ActivateLinkColorService,
+        private authService: AuthService,
         private scrollService: ScrollService
     ) { }
+
+    // signal del estado
+    public authStatus = computed(() => this.authService.authStatus());
+
+    public statusValues = AuthStatus;
+
+
+
+
+
+
+
+
 
 
     ngOnInit(): void {
@@ -57,23 +73,22 @@ export class NavBarComponent {
         return this.activeLinkService.activeLink;
     }
 
-
     //activar color del link al dar click
     setHomeLink() {
         this.activeLinkService.setHomeLink();
-        console.log(this.getActiveLink)
+        console.log(this.getActiveLink);
     }
     setAboutLink() {
         this.activeLinkService.setAboutLink();
-        console.log(this.getActiveLink)
+        console.log(this.getActiveLink);
     }
     setServiceLink() {
         this.activeLinkService.setServiceLink();
-        console.log(this.getActiveLink)
+        console.log(this.getActiveLink);
     }
     setContactLink() {
         this.activeLinkService.setContactLink();
-        console.log(this.getActiveLink)
+        console.log(this.getActiveLink);
     }
 
 

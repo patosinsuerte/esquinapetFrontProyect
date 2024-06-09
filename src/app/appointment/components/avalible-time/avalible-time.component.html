@@ -1,6 +1,6 @@
 <div class="wrapper">
     <div class="times">
-        <div *ngFor="let time of avalibleTimes" class="time"
+        <div *ngFor="let time of availiableTimes" class="time"
             (click)="onEmmitSelectedTime(time); onSetBackgroundToTime(time)"
             [ngClass]="{'time--active': selectedTime == time}">{{time}}
         </div>

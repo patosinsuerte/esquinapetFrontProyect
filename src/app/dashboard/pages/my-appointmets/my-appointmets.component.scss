@@ -1,8 +1,8 @@
 .wrapper {
     padding: 2em;
-    height: 100vh;
     background-color: #f2f2f2;
     width: 100%;
+    height: 100%;
 }
 
 .content {
@@ -12,18 +12,11 @@
     padding: 1em;
     border-radius: 8px;
     width: 100%;
-
 }
-
 
 .titles__title {
     text-align: center;
-
 }
-
-
-
-
 
 /*TABLA*/
 
@@ -31,9 +24,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 10em;
-
 }
-
 
 td {
     text-align: center;
@@ -51,7 +42,6 @@ tbody tr:nth-child(even) {
     // background-color: #f2f2f2;
 }
 
-
 button {
     background-color: #dc3545;
     color: white;
@@ -65,8 +55,7 @@ button:hover {
     background-color: #c82333;
 }
 
-@media only screen and (max-width: 500px) {
-
+@media only screen and (max-width: 650px) {
     .appointments {
         display: flex;
         justify-content: center;

@@ -28,8 +28,12 @@
                     </div>
 
                     <div class="banner__buttons">
-                        <button class="banner__button banner__button--agend" [routerLink]="'/appointments'">Reservar una
+                        <button *ngIf="authStatus() === authStautsValues.AUTHENTICATED"
+                            class="banner__button banner__button--agend" [routerLink]="'/appointments'">Reservar una
                             hora</button>
+                        <button *ngIf="authStatus() === authStautsValues.CHECKING"
+                            class="banner__button banner__button--agend" [routerLink]="'/auth/login'">Iniciar
+                            sesión</button>
                         <button class="banner__button banner__button--services" (click)="scrollTo('services')">Nuestros
                             servicios</button>
                     </div>

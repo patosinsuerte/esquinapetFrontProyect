@@ -3,26 +3,32 @@
         <div class="container__header">
             <h2 class="container__header-text">Iniciar sesion</h2>
         </div>
-        <form class="form">
+        <form class="form" [formGroup]="loginForm" autocomplete="off">
             <div class="form__item">
                 <img src="/assets/icons/mail.svg" alt="RUT" class="form__img" draggable="false">
-                <input type="email" placeholder="Email" class="form__input">
+                <input type="email" placeholder="Email" class="form__input" formControlName="email">
+                <p *ngIf="isValidField('email')" class="form__error">{{getFieldErrors('email')}}</p>
             </div>
             <div class="form__item">
                 <img src="/assets/icons/lock.svg" alt="RUT" class="form__img" draggable="false">
-                <input type="password" placeholder="Password" class="form__input">
+                <input type="password" placeholder="Password" class="form__input" formControlName="password">
+                <p *ngIf="isValidField('password')" class="form__error">
+                    {{getFieldErrors('password')}}</p>
+                <p *ngIf="passwordNotMatchMessage != ''" class="form__error"></p>
             </div>
             <div class="form__buttons">
-                <button type="button" class="form__button">Ingresar</button>
+                <button type="submit" class="form__button" (click)="login()">Ingresar</button>
             </div>
         </form>
         <!--BOTONES OLVIDE CONTRASENA-->
         <div class="container__footer">
             <a class="container__footer-link" [routerLink]="'/auth/register'">No tienes una
                 cuenta?</a>
-            <a class="container__footer-link" [routerLink]="'/user'">Olvidaste tu constrasena</a>
+            <a class="container__footer-link" [routerLink]="'/dashboard'">Olvidaste tu constrasena</a>
         </div>
     </div>
 
+
 </div>
+
 <shared-footer></shared-footer>

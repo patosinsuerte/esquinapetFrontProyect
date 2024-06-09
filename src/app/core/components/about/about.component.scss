@@ -6,17 +6,16 @@
     justify-content: center;
     align-items: center;
     height: auto;
-    padding-top: 6em;
+    padding-top: 9em;
     gap: 5em;
-    // min-height: 100vh;
-    // background-image: url('/assets/images/login2.jpg');
+    min-height: 100vh;
+    // background-image: url("/assets/images/login2.jpg");
     // background-position: center;
     // background-size: cover;
     // width: 100%;
     // background-attachment: fixed;
     // min-width: 250px;
 }
-
 
 .about__title {
     font-size: 2rem;
@@ -27,15 +26,12 @@
     letter-spacing: 1px;
 }
 
-
-
 .wrapper {
     width: inherit;
     display: flex;
     flex-direction: column;
-    gap: 5em;
+    gap: 4em;
 }
-
 
 .mission {
     display: flex;
@@ -46,18 +42,14 @@
     gap: 2em;
     width: inherit;
 
-
     //desktop
-    @media screen and (min-width:850px) {
+    @media screen and (min-width: 850px) {
         flex-direction: row;
         align-items: center;
         justify-content: space-around;
         width: inherit;
     }
 }
-
-
-
 
 /*text container*/
 
@@ -71,13 +63,11 @@
     text-align: center;
     color: var(--primary-color);
 
-
     //desktop
-    @media screen and (min-width:850px) {
+    @media screen and (min-width: 850px) {
         text-align: left;
     }
 }
-
 
 .mission__body {
     max-width: 500px;
@@ -90,12 +80,11 @@
     color: var(--light-black-font-color);
 
     //desktop
-    @media screen and (min-width:850px) {
+    @media screen and (min-width: 850px) {
         text-align: left;
         line-height: 1.5;
     }
 }
-
 
 // .mission__image-wrap {
 //     height: 800px;
@@ -139,10 +128,7 @@
     width: inherit;
 }
 
-
-
 @media screen and (min-width: 1000px) {
-
     .carousel-movil {
         display: none;
     }
@@ -150,13 +136,9 @@
     .carousel-tablet {
         display: none;
     }
-
 }
 
-
-
 @media screen and (max-width: 1000px) {
-
     .carousel-movil {
         display: flex;
     }
@@ -164,10 +146,7 @@
     .carousel-desktop {
         display: none;
     }
-
 }
-
-
 
 .mission__title--span {
     color: var(--titles-color-light);

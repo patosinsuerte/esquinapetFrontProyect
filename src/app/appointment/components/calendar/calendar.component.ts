@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, computed } from '@angular/core';
+import { HttpAppointmentService } from '../../services/HttpAppointment.service';
 
 
 
@@ -20,7 +21,7 @@ export class CalendarComponent {
 
     public dynamicMonthTitle?: Date;
 
-    public dateSelectedByUser?: string
+    public dateSelectedByUser?: string;
 
     public selectedDay?: number;
 
@@ -28,7 +29,7 @@ export class CalendarComponent {
     @Output()
     public emitSelectedDate = new EventEmitter<string>();
 
-    constructor() {
+    constructor(private http: HttpAppointmentService) {
 
         this.updateCalendar(this.currentMonth, this.currentYear);
     }
@@ -156,6 +157,29 @@ export class CalendarComponent {
 
     public onSetBackgroundToDay(day: number): void {
         this.selectedDay = day;
+    }
+
+
+
+
+    public reservedTimes = computed(() => this.http.timesReserved());
+
+    public availiableTimes: string[] = [];
+
+    @Output() availiableTimesUpdated = new EventEmitter<string[]>();
+
+    loadAvailableTimes() {
+        // const date = this.myForm.controls['date'].value;
+
+        this.http.getTimesReservedByDate(this.dateSelectedByUser)
+            .subscribe({
+                next: () => {
+                    console.log(this.reservedTimes());
+                    this.availiableTimes = this.http.allTimes.filter((time) => !this.reservedTimes().includes(time));
+                    this.availiableTimesUpdated.emit(this.availiableTimes);
+                },
+                error: ((err) => console.log(err))
+            });
     }
 
 
