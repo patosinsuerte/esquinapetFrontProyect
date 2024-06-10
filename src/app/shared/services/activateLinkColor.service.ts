@@ -30,6 +30,15 @@ export class ActivateLinkColorService {
     }
 
 
+    setLoginLink() {
+        this.activeLink = 4;
+    }
+
+    setRegister() {
+        this.activeLink = 5;
+    }
+
+
     setCurrentSection(): void {
 
         const sections = document.querySelectorAll('section');
@@ -37,10 +46,15 @@ export class ActivateLinkColorService {
 
         const currentPath = window.location.pathname;
 
-        if (currentPath !== "/") {
-            this.activeLink = 0; // Si la ruta es diferente a '/', establece activeLink como 0
-            return; // Sal de la función porque no necesitas seguir verificando las secciones
-        }
+
+        // if (currentPath !== "/") {
+        //     this.activeLink = 0; // Si la ruta es diferente a '/', establece activeLink como 0
+        //     return; // Sal de la función porque no necesitas seguir verificando las secciones
+        // }
+
+
+
+
         sections.forEach((section: HTMLElement, index: number) => {
             const sectionId = section.id;
             const sectionOffset = section.offsetTop;

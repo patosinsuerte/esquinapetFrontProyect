@@ -24,14 +24,6 @@ export class NavBarComponent {
     public statusValues = AuthStatus;
 
 
-
-
-
-
-
-
-
-
     ngOnInit(): void {
         this.activeLinkService.setCurrentSection();
     }
@@ -76,19 +68,15 @@ export class NavBarComponent {
     //activar color del link al dar click
     setHomeLink() {
         this.activeLinkService.setHomeLink();
-        console.log(this.getActiveLink);
     }
     setAboutLink() {
         this.activeLinkService.setAboutLink();
-        console.log(this.getActiveLink);
     }
     setServiceLink() {
         this.activeLinkService.setServiceLink();
-        console.log(this.getActiveLink);
     }
     setContactLink() {
         this.activeLinkService.setContactLink();
-        console.log(this.getActiveLink);
     }
 
 

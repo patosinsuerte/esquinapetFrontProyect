@@ -19,7 +19,7 @@ export class LoginPageComponent implements OnInit {
 
     public passwordNotMatchMessage: string = '';
 
-    constructor(private scrollService: ScrollService) {
+    constructor(private scrollService: ScrollService, private activeLink: ActivateLinkColorService) {
 
     }
 
@@ -37,8 +37,8 @@ export class LoginPageComponent implements OnInit {
 
 
     public loginForm: FormGroup = this.formBuilder.group({
-        email: ['patricio@gmail.com', [Validators.required, Validators.email], [this.valitationService.emailHasNotExist], { updateOn: 'blur' }],
-        password: ['A12345678', [Validators.required],]
+        email: ['', [Validators.required, Validators.email], [this.valitationService.emailHasNotExist], { updateOn: 'blur' }],
+        password: ['', [Validators.required],]
     });
 
 
@@ -107,6 +107,8 @@ export class LoginPageComponent implements OnInit {
     public checkExpirationToken() {
         this.authService.logoutForTokenExpiration();
     }
+
+
 
 
 

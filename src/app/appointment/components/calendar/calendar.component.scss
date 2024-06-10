@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     gap: 2em;
-
 }
 
 h2 {
@@ -11,15 +10,12 @@ h2 {
     font-size: 1.3rem;
 }
 
-
 .wrapper__information {
     display: flex;
     gap: 2em;
     text-align: center;
     justify-content: center;
-
 }
-
 
 .wrapper__button {
     border: none;
@@ -27,14 +23,12 @@ h2 {
     cursor: pointer;
 }
 
-
 .calendar {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    // grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
     gap: 1em;
-
 }
-
 
 .calendar__daysOfMonth {
     cursor: pointer;
@@ -42,9 +36,13 @@ h2 {
     padding-top: 0.3em;
     width: 30px;
     height: 30px;
+
+    width: 100%; /* Usa porcentaje para que el tamaño se adapte automáticamente */
+    max-width: 30px; /* Establece un tamaño máximo */
+    height: auto;
+
     text-align: center;
 }
-
 
 .calendar__daysOfMonth:hover {
     background-color: var(--primary-color);
@@ -55,9 +53,6 @@ h2 {
     background-color: var(--primary-color);
     color: #fff;
 }
-
-
-
 
 ol {
     list-style: none;

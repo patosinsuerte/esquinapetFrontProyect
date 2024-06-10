@@ -85,5 +85,8 @@ body {
     margin: 0;
     font-family: "Roboto", "Helvetica Neue", sans-serif;
 }
-
+router-outlet > * {
+    width: 100%;
+    max-width: 100%; /* O ajusta este valor según sea necesario */
+}
 //"@angular/material/prebuilt-themes/deeppurple-amber.css"

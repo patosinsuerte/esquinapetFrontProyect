@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivateLinkColorService } from '../../../shared/services/activateLinkColor.service';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from '../../../shared/services/http.service';
@@ -20,21 +20,21 @@ export class RegisterPageComponent {
         private httpService: HttpService,
         private validationService: ValidationService,
         private authService: AuthService,
-        private router: Router
+        private router: Router,
+        private activeLinkService: ActivateLinkColorService
     ) {
 
     }
 
-
     // f
     public registerForm: FormGroup = this.fb.group({
-        rut: ['20.120.159-7', [Validators.required, Validators.pattern(this.validationService.rutRegex)], [this.validationService.rutHasExist]],
-        name: ['Joaquin', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.validationService.nameRegex)]],
-        lastName: ['Valencia', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.validationService.nameRegex)]],
-        email: ['joaco@gmail.com', [Validators.required, Validators.pattern(this.validationService.emailRegex)], [this.validationService.emailHasExist], { updateOn: 'blur' }],
-        phone: ['978451236', [Validators.required, Validators.minLength(9), Validators.maxLength(9), Validators.pattern(this.validationService.phoneRegex)], [this.validationService.phoneHasExist], { updateOn: 'blur' }],
-        password: ['A12345678', [Validators.required, Validators.maxLength(100), Validators.pattern(this.validationService.passwordRegex)]],
-        repeatedPassword: ['A12345678', [Validators.required, Validators.maxLength(100), Validators.pattern(this.validationService.passwordRegex)]]
+        rut: ['', [Validators.required, Validators.pattern(this.validationService.rutRegex)], [this.validationService.rutHasExist]],
+        name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.validationService.nameRegex)]],
+        lastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.validationService.nameRegex)]],
+        email: ['', [Validators.required, Validators.pattern(this.validationService.emailRegex)], [this.validationService.emailHasExist], { updateOn: 'blur' }],
+        phone: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9), Validators.pattern(this.validationService.phoneRegex)], [this.validationService.phoneHasExist], { updateOn: 'blur' }],
+        password: ['', [Validators.required, Validators.maxLength(100), Validators.pattern(this.validationService.passwordRegex)]],
+        repeatedPassword: ['', [Validators.required, Validators.maxLength(100), Validators.pattern(this.validationService.passwordRegex)]]
     }, { validators: [this.validationService.isFieldOneEqualFieldTwo('password', 'repeatedPassword')] });
 
 

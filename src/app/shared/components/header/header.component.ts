@@ -1,9 +1,10 @@
-import { Component, HostListener, OnInit, computed } from '@angular/core';
+import { Component, HostListener, OnInit, computed, signal } from '@angular/core';
 import { NavBarService } from '../../services/navbar.service';
 import { ScrollService } from '../../services/scroll.service';
 import { ActivateLinkColorService } from '../../services/activateLinkColor.service';
 import { AuthService } from '../../../auth/services/auth.service';
 import { AuthStatus } from '../../../auth/interfaces/authStatus.enum';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'shared-header',
@@ -18,6 +19,8 @@ export class HeaderComponent implements OnInit {
         private scrollService: ScrollService,
         private authService: AuthService,
         private activateLinkColorService: ActivateLinkColorService,
+        private activeLinkService: ActivateLinkColorService,
+        private router: Router
 
     ) { }
 
@@ -27,8 +30,11 @@ export class HeaderComponent implements OnInit {
 
 
 
-
     ngOnInit(): void {
+        const currentUrl = this.router.url;
+        if (currentUrl == '/') {
+            this.activeLinkService.activeLink = 0;
+        }
         this.activateLinkColorService.setCurrentSection();
     }
 
@@ -61,6 +67,8 @@ export class HeaderComponent implements OnInit {
     }
 
 
+
+
     //activar color del link al dar click
     setHomeLink() {
         this.activateLinkColorService.setHomeLink();
@@ -74,9 +82,6 @@ export class HeaderComponent implements OnInit {
     setContactLink() {
         this.activateLinkColorService.setContactLink();
     }
-
-
-
 
 
     scrollToTop() {

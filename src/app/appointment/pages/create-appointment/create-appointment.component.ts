@@ -143,7 +143,7 @@ export class CreateAppointmentComponent {
 
         this.http.createAppointment(formValues).subscribe({
             next: (data) => {
-                console.log({ data });
+
                 Swal.fire({
                     title: 'Exito',
                     icon: 'success',

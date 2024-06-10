@@ -9,11 +9,15 @@
             </li>
 
             <li class="menu__item">
-                <a class="menu__link menu__link--session" [routerLink]="'/auth/login'">Iniciar
+                <a class="menu__link menu__link--session" [routerLink]="'/auth/login'"
+                    [ngClass]="activeLink === 4 ? 'menu__link--active': 'menu__link--inactive'"
+                    (click)="setLoginLink()">Iniciar
                     sesion</a>
             </li>
             <li class="menu__item">
-                <a class="menu__link menu__link--session" [routerLink]="'/auth/register'">Registrarse</a>
+                <a class="menu__link menu__link--session" [routerLink]="'/auth/register'"
+                    [ngClass]="activeLink === 5  ? 'menu__link--active': 'menu__link--inactive'"
+                    (click)="setRegisterLink()">Registrarse</a>
             </li>
         </ul>
     </nav>

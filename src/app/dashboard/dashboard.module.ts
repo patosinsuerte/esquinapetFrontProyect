@@ -9,13 +9,15 @@ import { MaterialModule } from '../material/material.module';
 import { MyAppointmetsComponent } from './pages/my-appointmets/my-appointmets.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { UserPageComponent } from './pages/user-page/user-page.component';
+import { UserEditComponent } from './pages/user-edit/user-edit.component';
 
 
 @NgModule({
     declarations: [
         LayoutPageComponent,
         MyAppointmetsComponent,
-        UserPageComponent
+        UserPageComponent,
+        UserEditComponent
 
     ],
     imports: [

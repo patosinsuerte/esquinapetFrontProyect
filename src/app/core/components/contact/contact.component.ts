@@ -26,7 +26,6 @@ export class ContactComponent implements AfterViewInit, OnDestroy {
             throw 'Elemento map no encontrado en el HTML';
         }
 
-        console.log(this.mapRef);
         this.map = new Map({
             container: this.mapRef.nativeElement,
             style: 'mapbox://styles/mapbox/streets-v12', // style URL
@@ -43,7 +42,6 @@ export class ContactComponent implements AfterViewInit, OnDestroy {
 
         this.marker.on('dragend', () => {
             this.currentlngLat = this.marker!.getLngLat();
-            console.log(this.currentlngLat);
         });
         // this.mapListener();
     }

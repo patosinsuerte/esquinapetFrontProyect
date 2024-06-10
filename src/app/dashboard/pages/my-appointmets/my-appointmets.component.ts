@@ -33,10 +33,9 @@ export class MyAppointmetsComponent implements OnInit {
   getAllActiveAppointmentsByLoggedUser() {
     this.authService.getAllActiveAppointmets()
       .subscribe({
-        next: (appointments) => console.log(appointments),
+
         error: (err) => {
           this.gettAllAppointmentsByLoggedUserErrorMessage = err.message;
-          console.log(err.message);
         }
       });
   }

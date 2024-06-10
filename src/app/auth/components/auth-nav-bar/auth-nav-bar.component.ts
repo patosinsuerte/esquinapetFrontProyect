@@ -1,5 +1,7 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { NavBarService } from '../../../shared/services/navbar.service';
+import { ActivateLinkColorService } from '../../../shared/services/activateLinkColor.service';
+import { Router } from '@angular/router';
 
 
 
@@ -10,8 +12,11 @@ import { NavBarService } from '../../../shared/services/navbar.service';
 })
 export class AuthNavBarComponent {
     constructor(
+        private activeLinkService: ActivateLinkColorService,
         public navBarService: NavBarService,
+        private router: Router
     ) { }
+
 
 
     offNavMenu(): void {
@@ -38,6 +43,22 @@ export class AuthNavBarComponent {
     }
 
 
+
+
+
+    get activeLink() {
+        return this.activeLinkService.activeLink;
+    }
+
+    setLoginLink() {
+        this.activeLinkService.setLoginLink();
+
+    }
+
+    setRegisterLink() {
+        this.activeLinkService.setRegister();
+
+    }
 
 
 }
