@@ -45,8 +45,6 @@ export class AuthService {
 
   }
 
-
-
   public login(email: string, password: string): Observable<UserResponseDTO | null> {
     const url: string = `${environments.baseUrl}/auth/login`;
 
@@ -144,7 +142,7 @@ export class AuthService {
 
   editLoggedUserInfo(editUserInfo: EditLoggedUserInfo): Observable<UserResponseDTO | null> {
 
-    const url = `${environments.baseUrl}/auth/edit`;
+    const url = `${environments.baseUrl}/auth/user/edit`;
     const token = sessionStorage.getItem('token');
     if (!token) {
       throw new Error("Token is not present in localStorage");
@@ -154,6 +152,9 @@ export class AuthService {
     // El cuerpo de la solicitud debería ser `editUserInfo`
     return this.http.patch<UserResponseDTO>(url, editUserInfo, { headers })
       .pipe(
+        tap((res) => {
+          this._currentUser.set(res);
+        }),
         catchError((error) => {
           return throwError(() => error);
         })

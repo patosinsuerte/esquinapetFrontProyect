@@ -4,18 +4,43 @@
         <div class="user__titles">
             <h2 class="user__title">Informacion del usuario</h2>
         </div>
-        <div class="user__information">
+        <div class="user__information" *ngIf="editModeStatus() === editModeValues.OFF">
             <div class="user__information-group">
-                <p>Nombre: </p>
+                <p>Nombre: {{currentUser()?.name}}</p>
             </div>
             <div class="user__information-group">
-                <p>Apellido: </p>
+                <p>Apellido: {{currentUser()?.lastName}}</p>
             </div>
             <div class="user__information-group">
-                <p>Telefono: </p>
+                <p>Telefono: {{currentUser()?.phone}}</p>
+            </div>
+            <button class="user__button" (click)="onEditMode()">Editar informacion</button>
+        </div>
+        <form class="form" *ngIf="editModeStatus() === editModeValues.ON" autocomplete="off" (ngSubmit)="saveChanges()"
+            [formGroup]="editUserForm">
+            <div class="form__group">
+                <label for="name">Nombre</label>
+                <input type="text" placeholder="Nuevo nombre ..." id="name" class="form__input" formControlName="name">
+            </div>
+            <span *ngIf="isValidField('name')" class="form__error">{{getFieldErrors('name')}}</span>
+            <div class="form__group">
+                <label for="name">Apellido</label>
+                <input type="text" placeholder="Nuevo apellido ..." class="form__input" formControlName="lastName">
+            </div>
+            <span *ngIf="isValidField('lastName')" class="form__error">{{getFieldErrors('lastName')}}</span>
+            <div class="form__group">
+                <label for="name">Telefono</label>
+                <input type="text" placeholder="Celular: 9XXXXXXXX" class="form__input" formControlName="phone">
+            </div>
+            <span *ngIf="isValidField('phone')" class="form__error">{{getFieldErrors('phone')}}</span>
+            <div class="form__buttons">
+                <button type="submit" class="user__button user__button--blue">Guardar</button>
+                <button class="user__button user__button--red" (click)="offEditMode()">Cancelar</button>
             </div>
 
-        </div>
-        <button class="user__button">Editar informacion</button>
+        </form>
     </div>
+
+
+
 </div>

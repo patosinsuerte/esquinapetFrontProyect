@@ -1,6 +1,6 @@
 export interface EditLoggedUserInfo {
 
-    name: string;
-    lastName: string;
-    phone: string;
+    name: string | null | undefined;
+    lastName: string | null | undefined;
+    phone: string | null | undefined;
 }

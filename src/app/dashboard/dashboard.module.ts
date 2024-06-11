@@ -10,6 +10,7 @@ import { MyAppointmetsComponent } from './pages/my-appointmets/my-appointmets.co
 import { PipesModule } from '../pipes/pipes.module';
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { UserEditComponent } from './pages/user-edit/user-edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { UserEditComponent } from './pages/user-edit/user-edit.component';
         DashboardRoutingModule,
         RouterModule,
         MaterialModule,
-        PipesModule
+        PipesModule,
+        ReactiveFormsModule
     ]
 })
 export class UserModule { }

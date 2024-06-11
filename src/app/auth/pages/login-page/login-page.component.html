@@ -11,10 +11,12 @@
             </div>
             <div class="form__item">
                 <img src="/assets/icons/lock.svg" alt="RUT" class="form__img" draggable="false">
-                <input type="password" placeholder="Password" class="form__input" formControlName="password">
+                <input type="password" placeholder="Password" class="form__input" formControlName="password"
+                    (input)="resetPasswordError()">
                 <p *ngIf="isValidField('password')" class="form__error">
                     {{getFieldErrors('password')}}</p>
-                <p *ngIf="passwordNotMatchMessage != ''" class="form__error"></p>
+                <p *ngIf="passwordNotMatch" class="form__error">La contraseña no coincide</p>
+
             </div>
             <div class="form__buttons">
                 <button type="submit" class="form__button" (click)="login()">Ingresar</button>

@@ -17,7 +17,7 @@ import { Observable } from 'rxjs';
 export class LoginPageComponent implements OnInit {
 
 
-    public passwordNotMatchMessage: string = '';
+
 
     constructor(private scrollService: ScrollService, private activeLink: ActivateLinkColorService) {
 
@@ -81,7 +81,7 @@ export class LoginPageComponent implements OnInit {
     }
 
 
-
+    public passwordNotMatch = false;
     // authentication methods
     public login() {
         const { email, password } = this.loginForm.value;
@@ -94,8 +94,8 @@ export class LoginPageComponent implements OnInit {
                 },
                 error: (err) => {
                     if (err.error.field == 'password') {
-                        this.passwordNotMatchMessage = 'La contrasena no coincide';
-
+                        this.passwordNotMatch = true;
+                        console.log(err.error.field);
                     }
                 }
             });
@@ -109,7 +109,9 @@ export class LoginPageComponent implements OnInit {
     }
 
 
-
+    public resetPasswordError() {
+        this.passwordNotMatch = false;
+    }
 
 
 }
